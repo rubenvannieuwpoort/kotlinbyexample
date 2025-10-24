@@ -15,12 +15,12 @@
 					<td class="docs">
 						{{row[0]}}
 					</td>
-					{% if row[1]|length > 0 %}
+					{% if row[1]|length == 0 and (loop.index == 1 or loop.index == code | length) %}
+					<td class="code empty"></td>
+					{% else %}
 					<td class="code">
 						<pre><code>{% for line in row[1] %}<span class="line"><span class="cl">{{line}}</span></span>
 {% endfor %}</code></pre>
-					{% else %}
-					<td class="code empty"></td>
 					{% endif %}
 					</td>
 				</tr>
