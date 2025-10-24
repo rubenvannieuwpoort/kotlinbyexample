@@ -1,7 +1,7 @@
 // Kotlin has various types including strings, integers, floats, booleans, etc. Here are a few basic examples.
 
 fun main() {
-    // Strings, which can be added together with +.
+    // Strings, which can be added together with `+`.
     println("kot" + "lin")
 
     // Integers and floats.
