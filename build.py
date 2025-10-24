@@ -1,4 +1,4 @@
-from extra.parse import parse
+from parse import parse
 
 from pyndakaas import Handler, handler, process_dir
 import mistune
@@ -21,9 +21,11 @@ class Example(Handler):
         self.script_source = self.read_from_file(self.rel_input_path / 'run.sh')
 
     def initialize_extra_parameters(self):
+        name = self.rel_input_path.name
+        self.parameters['name'] = name
+        self.parameters['title'] = get_title(self.rel_input_path.name)
         self.parameters['code'] = list(map(lambda x: (mistune.html(x[0]), x[1]), parse(self.source, '//')))
         self.parameters['script'] = list(map(lambda x: (mistune.html(x[0]), x[1]), parse(self.script_source, '#')))
-        self.parameters['title'] = get_title(self.rel_input_path.name)
         pass
 
     def get_rel_output_path(self):
