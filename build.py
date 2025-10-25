@@ -7,6 +7,11 @@ from pathlib import Path
 from fnmatch import fnmatch
 
 
+titles = {
+    'hello_world': 'Hello World',
+    'values': 'Values',
+}
+
 @handler()
 class Example(Handler):
     template = 'example'
@@ -21,12 +26,10 @@ class Example(Handler):
         self.script_source = self.read_from_file(self.rel_input_path / 'run.sh')
 
     def initialize_extra_parameters(self):
-        name = self.rel_input_path.name
-        self.parameters['name'] = name
-        self.parameters['title'] = get_title(self.rel_input_path.name)
+        self.parameters['dirname'] = self.rel_input_path.name
+        self.parameters['title'] = titles[self.rel_input_path.name]
         self.parameters['code'] = list(map(lambda x: (mistune.html(x[0]), x[1]), parse(self.source, '//')))
         self.parameters['script'] = list(map(lambda x: (mistune.html(x[0]), x[1]), parse(self.script_source, '#')))
-        pass
 
     def get_rel_output_path(self):
         return self.rel_input_path.parent.parent / self.rel_input_path.with_suffix('.html').name
@@ -34,27 +37,20 @@ class Example(Handler):
 @handler()
 class Index(Handler):
     template = 'index'
-    examples = [
-        'hello_world',
-        'values'
-    ]
 
     @staticmethod
     def should_handle(input_path: Path) -> bool:
-        result = input_path.is_file() and fnmatch(str(input_path), 'src/index')
+        result = input_path.is_file() and fnmatch(str(input_path), 'src/index.md')
         return result
 
     def initialize_extra_parameters(self) -> None:
-        self.parameters['links'] = map(lambda x: (get_title(x), f' {x}'), self.examples)
+        self.parameters['links'] = titles.items()
 
     def transform(self) -> None:
         body = mistune.html(self.source)
         assert isinstance(body, str)
         self.body = body
 
-
-def get_title(filename: str) -> str:
-    return ' '.join(map(lambda w: w.capitalize(), filename.split('_')))
 
 
 process_dir(Path('src'), Path('build'))
