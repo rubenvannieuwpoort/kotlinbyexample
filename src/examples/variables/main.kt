@@ -7,7 +7,7 @@ fun main() {
     // The type can be omitted from the declaration; it will be inferred by the compiler.
     var b = 11
 
-    // A *read-only reference* (as opposed to a *w*) can
+    // A *read-only reference* (as opposed to a *reassignable reference*) can
     // be declared with the `val` keyword. A read-only reference can not be
     // reassigned.
     val c = 12
