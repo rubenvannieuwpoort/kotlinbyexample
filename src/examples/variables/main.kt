@@ -25,7 +25,7 @@ fun main() {
     if (a + b + c < 100) {
         d = "the sum of a, b, and c is less than 100"
     } else {
-        d = "the sum of a, b, and c is less than 100"
+        d = "the sum of a, b, and c is 100 or more"
     }
     println(d)
 }
