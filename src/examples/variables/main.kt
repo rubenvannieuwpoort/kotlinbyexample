@@ -5,12 +5,14 @@ fun main() {
     var a: Int = 10
 
     // The type can be omitted from the declaration; it will be inferred by the compiler.
-    var b = 11
+    var b = a
+    b++
 
     // A *read-only reference* (as opposed to a *reassignable reference*) can
     // be declared with the `val` keyword. A read-only reference can not be
-    // reassigned.
-    val c = 12
+    // reassigned; doing `c++` after the initialization would result in a
+    // compiler error, since it is a shorthand for `c = c + 1`.
+    val c = b + 1
 
     // Note that read-only references can still be mutable, it's only
     // reassignment that is forbidden.
