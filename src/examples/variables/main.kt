@@ -12,7 +12,13 @@ fun main() {
     // reassigned.
     val c = 12
 
-    // The initialization can be done separately from the declaration, as long
+    // Note that read-only references can still be mutable, it's only
+    // reassignment that is forbidden.
+    val myList = mutableListOf(10, 11)
+    myList.add(12)
+    println(myList)
+
+    // Initialization can be done separately from the declaration, as long
     // as the type is specified and the compiler can detected that the variable
     // will always be initialized.
     val d: String
@@ -22,10 +28,4 @@ fun main() {
         d = "the sum of a, b, and c is less than 100"
     }
     println(d)
-
-    // Note that read-only references can still be mutable, it's only
-    // reassignment that is forbidden.
-    val myList = mutableListOf(10, 11)
-    myList.add(12)
-    println(myList)
 }
