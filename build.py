@@ -10,6 +10,7 @@ from fnmatch import fnmatch
 titles = {
     'hello_world': 'Hello World',
     'values': 'Values',
+    'variables': "Variables",
 }
 
 @handler()
