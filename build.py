@@ -11,6 +11,7 @@ titles = {
     'hello_world': 'Hello World',
     'values': 'Values',
     'variables': "Variables",
+    'extension_methods': "Extension Methods",
 }
 
 @handler()
@@ -51,7 +52,6 @@ class Index(Handler):
         body = mistune.html(self.source)
         assert isinstance(body, str)
         self.body = body
-
 
 
 process_dir(Path('src'), Path('build'))
