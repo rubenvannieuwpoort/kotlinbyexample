@@ -11,6 +11,8 @@ titles = {
     'hello_world': 'Hello world',
     'values': 'Values',
     'variables': 'Variables',
+    'for': 'For',
+    'if_else': 'If/else',
     'reading_from_standard_input': 'Reading from standard input',
     'functions': 'Functions',
     'extension_methods': 'Extension methods',
