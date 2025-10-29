@@ -8,10 +8,12 @@ from fnmatch import fnmatch
 
 
 titles = {
-    'hello_world': 'Hello World',
+    'hello_world': 'Hello world',
     'values': 'Values',
-    'variables': "Variables",
-    'extension_methods': "Extension Methods",
+    'variables': 'Variables',
+    'reading_from_standard_input': 'Reading from standard input',
+    'functions': 'Functions',
+    'extension_methods': 'Extension methods',
 }
 
 @handler()
