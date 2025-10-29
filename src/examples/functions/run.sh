@@ -1,4 +1,5 @@
 $ kotlinc main.kt -include-runtime -d main.jar
 $ java -jar Main.jar
-Ruben
-Hello, Ruben
+Hello, Alice
+16
+KOTLIN
