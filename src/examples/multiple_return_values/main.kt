@@ -12,9 +12,9 @@ fun allMyNames(): Triple<String, String, String> {
     return Triple("Ruben", "van", "Nieuwpoort");
 }
 
-// There is no `Quadruple` dataclass. However, if you want, it can easily
-// be defined. Generally, it is more idiomatic to make a custom dataclass with
-// appropriately named member properties.
+// There is no `Quadruple` dataclass, but if we want one we can easily define it.
+// However, it is more idiomatic to make a custom dataclass with appropriately
+// named member properties.
 data class Quadruple<out A, out B, out C, out D>(
     val first: A,
     val second: B,
@@ -22,7 +22,8 @@ data class Quadruple<out A, out B, out C, out D>(
     val fourth: D
 )
 
-fun evenMoreNames(): Quadruple<String, String, String, String> {
+fun evenMoreNames(): Quadruple<String, String,
+                               String, String> {
     return Quadruple("Fernando", "de", "los", "Santos");
 }
 

@@ -1,7 +1,6 @@
 // In Kotlin, it is possible to define methods for classes outside the
 // definition of those classes with a concept called *extension methods*.
 
-
 // For example, we can define a new method on the `String` class.
 // Here, `String` is called the *receiver type* and `this` is called the
 // *receiver object*.
