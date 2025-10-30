@@ -1,7 +1,7 @@
-fun main() {
-    // In Kotlin, there is only one syntactical form of the `for` loop.
-    // It can be used on anything that implements the `Iterable<T>` interface.
+// In Kotlin, there is only one syntactical form of the `for` loop.
+// It can be used on anything that implements the `Iterable<T>` interface.
 
+fun main() {
     // For example, on lists or arrays.
     val someNumbers = listOf(11, 13, 19)
     for (x in someNumbers) {
