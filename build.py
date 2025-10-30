@@ -3,6 +3,8 @@ from parse import parse
 from pyndakaas import Handler, handler, process_dir
 import mistune
 
+import json
+import base64
 from pathlib import Path
 from fnmatch import fnmatch
 
@@ -39,6 +41,14 @@ class Example(Handler):
         self.parameters['title'] = titles[self.rel_input_path.name]
         self.parameters['code'] = list(map(lambda x: (mistune.html(x[0]), x[1]), parse(self.source, '//')))
         self.parameters['script'] = list(map(lambda x: (mistune.html(x[0]), x[1]), parse(self.script_source, '#')))
+
+        # for the 'copy' button in code blocks
+        json_source = json.dumps(self.source)
+        self.parameters['sourcecode'] = json_source
+
+        # for the link to Kotlin playground in code blocks
+        json_blob = f'{{"version":"2.2.21","platform":"java","code":{json_source}}}'
+        self.parameters['base64'] = base64.b64encode(json_blob.encode()).decode('utf-8')
 
     def get_rel_output_path(self):
         return self.rel_input_path.parent.parent / self.rel_input_path.with_suffix('.html').name

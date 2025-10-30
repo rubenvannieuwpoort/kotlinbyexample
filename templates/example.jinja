@@ -19,6 +19,10 @@
 					<td class="code empty"></td>
 					{% else %}
 					<td class="code">
+						{% if (loop.index == 1) %}
+						<a href="https://play.kotlinlang.org/#{{base64}}"><img title="Run code" src="play.png" class="run"></a>
+						<img title="Copy code" src="clipboard.png" class="copy" onclick="navigator.clipboard.writeText(code);">
+						{% endif %}
 						<pre><code>{% for line in row[1] %}<span class="line"><span class="cl">{{line}}</span></span>
 {% endfor %}</code></pre>
 					{% endif %}
@@ -43,5 +47,8 @@
 
 			<p class="footer">by <a href="https://rubenvannieuwpoort.nl">Ruben van Nieuwpoort</a> | <a href="https://github.com/rubenvannieuwpoort/kotlinbyexample/blob/master/src/examples/{{dirname}}/main.kt">source</a> | <a href="https://creativecommons.org/licenses/by/3.0/">license</a> | based on <a href="https://gobyexample.com">Go by Example</a></p>
 		</div>
+		<script>
+			var code = {{sourcecode}};
+		</script>
 	</body>
 </html>
