@@ -13,6 +13,23 @@ About the philosophy:
   it needs to be added to `src/examples/`, and to the `titles` array in `build.py`. I have no intention to change this.
 - Examples should be useful, (mostly) self-contained, reasonable in size, and only use the standard library. They should showcase language features or common and concrete tasks/patterns.
 
-If you feel like contributing, but don't know what to contribute, here are some suggestions:
-- Add syntax highlighting for Kotlin and bash code blocks (e.g. using [Pygments](https://pygments.org)).
-- In code blocks, add a 'copy' button and link to run the program on [the Kotlin playground](https://play.kotlinlang.org), like [Go by Example](https://gobyexample.com) does.
+If you feel like contributing, but don't know what to contribute, here are some suggestions.
+
+### Adding syntax highlighting for Kotlin and base code block
+
+Add syntax highlighting for Kotlin and bash code blocks (e.g. using [Pygments](https://pygments.org)).
+
+
+#### Adding a 'copy' button to code blocks
+
+Like Go by Example does ([example](https://gobyexample.com/hello-world)).
+
+
+#### Adding a link to run code blocks on the Kotlin playground
+
+In code blocks, add a 'copy' button and link to run the program on [the Kotlin playground](https://play.kotlinlang.org).
+
+The link should link to `https://play.kotlinlang.org/#<code>` where `<code>` is a base64-encoded JSON blob of the form:
+```
+{"version":"2.2.21","platform":"java","code":"fun main() {\n    println(\"Hello, world!\")\n}\n"}
+```
