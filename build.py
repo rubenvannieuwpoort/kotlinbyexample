@@ -39,7 +39,11 @@ class Example(Handler):
     def initialize_extra_parameters(self):
         self.parameters['dirname'] = self.rel_input_path.name
         self.parameters['title'] = titles[self.rel_input_path.name]
-        self.parameters['code'] = list(map(lambda x: (mistune.html(x[0]), x[1]), parse(self.source, '//')))
+
+        code = list(map(lambda x: (mistune.html(x[0]), x[1]), parse(self.source, '//')))
+        self.parameters['code'] = code
+        self.parameters['first_code_idx'] = next((idx for idx, s in enumerate(code) if len(s[1])), None)
+
         self.parameters['script'] = list(map(lambda x: (mistune.html(x[0]), x[1]), parse(self.script_source, '#')))
 
         # for the 'copy' button in code blocks

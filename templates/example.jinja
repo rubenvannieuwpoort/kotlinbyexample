@@ -19,7 +19,7 @@
 					<td class="code empty"></td>
 					{% else %}
 					<td class="code">
-						{% if (loop.index == 1) %}
+						{% if (loop.index0 == first_code_idx) %}
 						<a href="https://play.kotlinlang.org/#{{base64}}"><img title="Run code" src="play.png" class="run"></a>
 						<img title="Copy code" src="clipboard.png" class="copy" onclick="navigator.clipboard.writeText(code);">
 						{% endif %}
