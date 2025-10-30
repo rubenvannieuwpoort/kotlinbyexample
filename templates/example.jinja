@@ -23,8 +23,8 @@
 						<a href="https://play.kotlinlang.org/#{{base64}}"><img title="Run code" src="play.png" class="run"></a>
 						<img title="Copy code" src="clipboard.png" class="copy" onclick="navigator.clipboard.writeText(code);">
 						{% endif %}
-						<pre><code>{% for line in row[1] %}<span class="line"><span class="cl">{{line}}</span></span>
-{% endfor %}</code></pre>
+						{% for line in row[1] %}{{line}}
+{% endfor %}
 					{% endif %}
 					</td>
 				</tr>
@@ -38,8 +38,8 @@
 						{{row[0]}}
 					</td>
 					<td class="code">
-						<pre><code>{% for line in row[1] %}<span class="line"><span class="cl">{{line}}</span></span>
-{% endfor %}</code></pre>
+						{% for line in row[1] %}{{line}}
+{% endfor %}
 					</td>
 				</tr>
 				{% endfor %}

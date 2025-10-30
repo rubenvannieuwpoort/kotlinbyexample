@@ -2,6 +2,10 @@ from parse import parse
 
 from pyndakaas import Handler, handler, process_dir
 import mistune
+from pygments import highlight
+from pygments.lexers.jvm import KotlinLexer
+from pygments.lexers.shell import BashSessionLexer
+from pygments.formatters import HtmlFormatter
 
 import json
 import base64
@@ -40,11 +44,14 @@ class Example(Handler):
         self.parameters['dirname'] = self.rel_input_path.name
         self.parameters['title'] = titles[self.rel_input_path.name]
 
-        code = list(map(lambda x: (mistune.html(x[0]), x[1]), parse(self.source, '//')))
+        kotlinHighlight = lambda x: highlight(x, KotlinLexer(), HtmlFormatter())
+        code = parse(self.source, '//', mistune.html, kotlinHighlight)
+
         self.parameters['code'] = code
         self.parameters['first_code_idx'] = next((idx for idx, s in enumerate(code) if len(s[1])), None)
 
-        self.parameters['script'] = list(map(lambda x: (mistune.html(x[0]), x[1]), parse(self.script_source, '#')))
+        bashHighlight = lambda x: highlight(x, BashSessionLexer(), HtmlFormatter())
+        self.parameters['script'] = parse(self.script_source, '#', mistune.html, bashHighlight)        
 
         # for the 'copy' button in code blocks
         json_source = json.dumps(self.source)

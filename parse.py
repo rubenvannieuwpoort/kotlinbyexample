@@ -1,4 +1,4 @@
-def parse(input: str, comment_marker: str):
+def parse(input: str, comment_marker: str, f1, f2):
     def is_empty(line):
         return len(line.lstrip()) == 0
 
@@ -41,6 +41,6 @@ def parse(input: str, comment_marker: str):
         remove_empty_lines(comments)
         remove_empty_lines(code)
 
-        result.append((' '.join(comments), code))
+        result.append((f1(' '.join(comments)), list(map(f2, code))))
     
     return result

@@ -12,5 +12,3 @@ About the philosophy:
 - In general, I try to keep things as simple as possible, even if this means a tiny bit more manual work. For example, to add a new example,
   it needs to be added to `src/examples/`, and to the `titles` array in `build.py`. I have no intention to change this.
 - Examples should be useful, (mostly) self-contained, reasonable in size, and only use the standard library. They should showcase language features or common and concrete tasks/patterns.
-
-If you feel like contributing, but don't know what to contribute, consider adding syntax highlighting for Kotlin and bash code blocks (e.g. using [Pygments](https://pygments.org)).
