@@ -22,7 +22,7 @@ def parse(input: str, comment_marker: str):
     while i < len(lines):
         code, comments = [], []
 
-        if not lines[i].lstrip().startswith(comment_marker):
+        if not is_comment(lines[i]):
             # if starting with code we only parse code
             while i < len(lines) and not is_comment(lines[i]):
                 code.append(lines[i])
@@ -33,8 +33,8 @@ def parse(input: str, comment_marker: str):
                 comments.append(lines[i].strip()[len(comment_marker):].lstrip())
                 i += 1
 
-            # parse following code (everything that's not a comment or empty line)
-            while i < len(lines) and not (is_comment(lines[i]) or is_empty(lines[i])):
+            # parse following code (everything that's not a comment)
+            while i < len(lines) and not is_comment(lines[i]):
                 code.append(lines[i])
                 i += 1
 
