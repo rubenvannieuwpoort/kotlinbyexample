@@ -24,6 +24,7 @@ titles = {
     'reading_from_standard_input': 'Reading from standard input',
     'functions': 'Functions',
     'multiple_return_values': 'Multiple return values',
+    'classes': 'Classes',
     'extension_methods': 'Extension methods',
 }
 
