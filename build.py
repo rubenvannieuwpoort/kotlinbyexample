@@ -17,15 +17,52 @@ titles = {
     'hello_world': 'Hello world',
     'values': 'Values',
     'variables': 'Variables',
+    'functions': 'Functions',
+    'if_else': 'If/else',
     'for': 'For',
     'while': 'While',
-    'if_else': 'If/else',
     'when': 'When',
-    'reading_from_standard_input': 'Reading from standard input',
-    'functions': 'Functions',
+    # TODO: smart casts
+    # TODO: null safety
     'multiple_return_values': 'Multiple return values',
     'classes': 'Classes',
+    'data_classes': 'Data classes',
+    # TODO: enum classes
+    # TODO: interfaces
+    # TODO: inheritance
+    # TODO: visibility modifiers
     'extension_methods': 'Extension methods',
+    # TODO: collections, arrays, lists, sets, maps, sequences (separately or not)
+    # TODO: iterators
+    # TODO: functional stuff (map, filter, fold, groupBy)
+    # TODO: assertions
+    # TODO: try/catch and exceptions (either separately or as one article)
+    # TODO: scope functions
+    # TODO: operator overloading
+    # TODO: generics
+    # TODO: lambdas
+    # TODO: annotations
+    # TODO: context parameters or context receivers
+    # TODO: reflection
+    # TODO: labels
+
+    # TODO: concurrency
+    # (threads, coroutines, synchronization, channels & flows, mutexes, atomic)
+
+    # 'reading_from_standard_input': 'Reading from standard input',
+    # TODO: reading files
+    # TODO: writing files
+    # TODO: logging
+    # TODO: number parsing
+    # TODO: number formatting
+    # TODO: environment variables
+    # TODO: commandline arguments
+    # TODO: running external commands
+    # TODO: random numbers
+    # TODO: regexes
+    # TODO: measuring time
+    # TODO: time
+    # TODO: hashing
 }
 
 @handler()
@@ -34,8 +71,8 @@ class Example(Handler):
 
     @staticmethod
     def should_handle(input_path: Path) -> bool:
-        result = input_path.is_dir() and fnmatch(str(input_path), 'src/examples/*')
-        return result
+        matches = input_path.is_dir() and fnmatch(str(input_path), 'src/examples/*')
+        return matches and input_path.with_suffix('').name in titles
 
     def read_source(self):
         self.source = self.read_from_file(self.rel_input_path / 'main.kt')

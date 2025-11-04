@@ -22,7 +22,7 @@ class Rectangle(var width: Int, var height: Int) {
         println("Created a square with side $size")
     }
 
-    // Member functions can be defined as you would expect.
+    // Member functions can be defined in the way you would expect.
     fun describe() {
         println(
             "Rectangle: ${width}x$height (area = $area)")
