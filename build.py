@@ -22,7 +22,7 @@ titles = {
     'for': 'For',
     'while': 'While',
     'when': 'When',
-    # TODO: smart casts
+    'casts': 'Casts',
     # TODO: null safety
     'multiple_return_values': 'Multiple return values',
     'classes': 'Classes',
