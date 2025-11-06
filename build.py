@@ -23,7 +23,7 @@ titles = {
     'while': 'While',
     'when': 'When',
     'casts': 'Casts',
-    # TODO: null safety
+    'null_safety': 'Null safety',
     'multiple_return_values': 'Multiple return values',
     'classes': 'Classes',
     'data_classes': 'Data classes',
