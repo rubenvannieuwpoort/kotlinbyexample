@@ -27,7 +27,7 @@ titles = {
     'multiple_return_values': 'Multiple return values',
     'classes': 'Classes',
     'data_classes': 'Data classes',
-    # TODO: enum classes
+    'enum_classes': 'Enum classes',
     # TODO: interfaces
     # TODO: inheritance
     # TODO: visibility modifiers
