@@ -28,7 +28,7 @@ titles = {
     'classes': 'Classes',
     'data_classes': 'Data classes',
     'enum_classes': 'Enum classes',
-    # TODO: interfaces
+    'interfaces': 'Interfaces',
     # TODO: inheritance
     # TODO: visibility modifiers
     'extension_methods': 'Extension methods',
