@@ -41,5 +41,4 @@ fun main() {
 
     maybeNullSafe(null)
     maybeNullUnsafe(null)
-
 }
